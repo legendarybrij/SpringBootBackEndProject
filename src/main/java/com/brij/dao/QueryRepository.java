@@ -10,5 +10,7 @@ import com.brij.model.Query;
 public interface QueryRepository extends CrudRepository<Query,Integer> {
 	
 	 List<Query> findAllByDepartment(String department);
+	 
+	 List<Query> findAllByQueryResponse(String queryResponse);
 	
 }

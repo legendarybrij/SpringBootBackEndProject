@@ -52,5 +52,10 @@ public class QueryController {
 	public List<Query> findAllQueries() {
 		return qService.findAllQueries();
 	}
+	
+	@GetMapping(path="/findAllQueriesByResponse")
+	public List<Query> findAllByQueryResponse(String queryResponse) {
+		return (List<Query>) qService.findAllByQueryResponse(queryResponse);
+	}
 
 }
