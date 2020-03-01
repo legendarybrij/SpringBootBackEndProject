@@ -44,4 +44,8 @@ public class QueryService {
 		return (List<Query>) qRepo.findAll();
 	}
 	
+	public List<Query> findAllByQueryResponse(String queryResponse) {
+		return (List<Query>) qRepo.findAllByQueryResponse(queryResponse);
+	}
+	
 }
