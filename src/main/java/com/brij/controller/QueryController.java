@@ -1,5 +1,6 @@
 package com.brij.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.brij.model.Customer;
 import com.brij.model.Query;
 import com.brij.service.QueryService;
 
@@ -53,9 +53,15 @@ public class QueryController {
 		return qService.findAllQueries();
 	}
 	
+	@GetMapping(path="/findAllNullQueriesByDept")
+	public List<Query> findAllNullQueriesByDept(@RequestBody Query q) {
+		
+		return (List<Query>) qService.findAllNullQueriesByDept(q.getDepartment());
+	}
+	
 	@GetMapping(path="/findAllQueriesByResponse")
-	public List<Query> findAllByQueryResponse(String queryResponse) {
-		return (List<Query>) qService.findAllByQueryResponse(queryResponse);
+	public List<Query> findAllByQueryResponse(@RequestBody Query q) {
+		return (List<Query>) qService.findAllByQueryResponse(q.getQueryResponse().trim());
 	}
 
 }

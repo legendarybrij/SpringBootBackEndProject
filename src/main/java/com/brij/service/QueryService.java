@@ -1,5 +1,6 @@
 package com.brij.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.brij.dao.QueryRepository;
 import com.brij.model.Customer;
+import com.brij.model.Employee;
 import com.brij.model.Query;
 
 @Service
@@ -42,6 +44,19 @@ public class QueryService {
 	
 	public List<Query> findAllQueries() {
 		return (List<Query>) qRepo.findAll();
+	}
+	
+	public List<Query> findAllNullQueriesByDept(String dept) {
+		List<Query> list = new ArrayList<Query>();
+		list = qRepo.findAllByDepartment(dept);
+		List<Query> nullList = new ArrayList<Query>();
+		for(Query newlist : list) {
+			if(newlist.getQueryResponse() == null) {
+				nullList.add(newlist);
+			}
+		}
+		
+		return nullList;
 	}
 	
 	public List<Query> findAllByQueryResponse(String queryResponse) {
