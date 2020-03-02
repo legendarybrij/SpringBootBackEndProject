@@ -46,7 +46,7 @@ public class QueryService {
 		return (List<Query>) qRepo.findAll();
 	}
 	
-	public List<Query> findAllNullQueriesByDept(String dept) {
+	public List<Query> findAllNullResponseQueriesByDept(String dept) {
 		List<Query> list = new ArrayList<Query>();
 		list = qRepo.findAllByDepartment(dept);
 		List<Query> nullList = new ArrayList<Query>();
@@ -59,8 +59,8 @@ public class QueryService {
 		return nullList;
 	}
 	
-	public List<Query> findAllByQueryResponse(String queryResponse) {
-		return (List<Query>) qRepo.findAllByQueryResponse(queryResponse);
+	public List<Query> findAllNullResponseQueries() {
+		return (List<Query>) qRepo.findAllByQueryResponse(null);
 	}
 	
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,9 +31,9 @@ public class QueryController {
 		return qService.updateQuery(q);
 	}
 	
-	@PostMapping(path="/deleteQuery", consumes={"application/json"})
-	public String deleteQuery(@RequestBody Query q) {
-		qService.deleteQuery(q.getQueryId());
+	@PostMapping(path="/deleteQuery/{id}")
+	public String deleteQuery(@PathVariable("id") int id) {
+		qService.deleteQuery(id);
 		return "Deleted";
 	}
 	
@@ -53,15 +54,17 @@ public class QueryController {
 		return qService.findAllQueries();
 	}
 	
-	@GetMapping(path="/findAllNullQueriesByDept")
-	public List<Query> findAllNullQueriesByDept(@RequestBody Query q) {
+	@GetMapping(path="/findAllNullResponseQueriesByDept")
+	public List<Query> findAllNullResponseQueriesByDept(@RequestBody Query q) {
 		
-		return (List<Query>) qService.findAllNullQueriesByDept(q.getDepartment());
+		return (List<Query>) qService.findAllNullResponseQueriesByDept(q.getDepartment());
 	}
 	
-	@GetMapping(path="/findAllQueriesByResponse")
-	public List<Query> findAllByQueryResponse(@RequestBody Query q) {
-		return (List<Query>) qService.findAllByQueryResponse(q.getQueryResponse().trim());
+	
+	
+	@GetMapping(path="/findAllNullResponseQueries")
+	public List<Query> findAllNullResponseQueries() {
+		return (List<Query>) qService.findAllNullResponseQueries();
 	}
 
 }
