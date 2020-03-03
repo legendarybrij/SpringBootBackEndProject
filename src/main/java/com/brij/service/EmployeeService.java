@@ -14,24 +14,23 @@ import com.brij.model.Employee;
 public class EmployeeService {
 	@Autowired
 	EmployeeRepository empRepo;
-	public Employee createEmployee(String empName, String empEmail, String empContact, String empDepartment) {
+	public Employee createEmployee(Employee emp) {
 	
-		Employee emp = new Employee();
-		emp.setEmpName(empName);
-		emp.setEmpEmail(empEmail);
-		emp.setEmpContact(empContact);
-		emp.setEmpDepartment(empDepartment);
+//		Employee emp = new Employee() 
+//		emp.setEmpName(empName);
+//		emp.setEmpEmail(empEmail);
+//		emp.setEmpContact(empContact);
+//		emp.setEmpDepartment(empDepartment);
 		return empRepo.save(emp);
 	}
 	
-	public String updateEmployee(int empId, String empName, String empEmail, String empContact, String empDepartment) {
-		Employee emp = findEmpById(empId);
-		emp.setEmpName(empName);
-		emp.setEmpEmail(empEmail);
-		emp.setEmpContact(empContact);
-		emp.setEmpDepartment(empDepartment);
-		return "Employee with Id"+empId+"is updated with Name:"+empName+"Email:"
-		+empEmail+"Contact:"+empContact+"Department:"+empDepartment;
+	public Employee updateEmployee(Employee emp) {
+//		Employee emp = findEmpById(empId);
+//		emp.setEmpName(empName);
+//		emp.setEmpEmail(empEmail);
+//		emp.setEmpContact(empContact);
+//		emp.setEmpDepartment(empDepartment);
+		return empRepo.save(emp);
 	}
 	
 	public void deleteEmployee(int empId) {

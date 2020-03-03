@@ -18,15 +18,15 @@ public class QueryService {
 	QueryRepository qRepo;
 	
 	public Query createQuery(Query q){
-		qRepo.save(q);
-		return q;
+		
+		return qRepo.save(q);
 	}
 	
 	public Query updateQuery(Query q){
-		Query oldQ= findQueryById(q.getQueryId());
-		oldQ = q;
-		qRepo.save(oldQ);
-		return oldQ;
+//		Query oldQ= findQueryById(q.getQueryId());
+//		oldQ = q;
+//		qRepo.save(oldQ);
+		return qRepo.save(q);
 	}
 	
 	public void deleteQuery(int id) {
@@ -60,7 +60,29 @@ public class QueryService {
 	}
 	
 	public List<Query> findAllNullResponseQueries() {
-		return (List<Query>) qRepo.findAllByQueryResponse(null);
+		List<Query> list = (List<Query>) qRepo.findAll();
+
+		List<Query> nullList = new ArrayList<Query>();
+		for(Query newlist : list) {
+			if(newlist.getQueryResponse().trim().length()==1 || newlist.getQueryResponse().length()==0 ) {
+				nullList.add(newlist);
+			}
+		}
+		
+		return nullList;
+	}
+	
+	public List<Query> findAllResponseQueries() {
+		List<Query> list = (List<Query>) qRepo.findAll();
+
+		List<Query> notNullList = new ArrayList<Query>();
+		for(Query newlist : list) {
+			if(newlist.getQueryResponse().trim().length()>1) {
+				notNullList.add(newlist);
+			}
+		}
+		
+		return notNullList;
 	}
 	
 }

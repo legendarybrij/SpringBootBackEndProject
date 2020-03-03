@@ -3,36 +3,38 @@ package com.brij.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.brij.model.Employee;
-import com.brij.model.Query;
 import com.brij.service.EmployeeService;
 
+@CrossOrigin(origins="http://localhost:4200")
 @RestController
 public class EmployeeController {
 	@Autowired
 	EmployeeService empService;
 	
-	@PostMapping(path="/newEmp",consumes={"application/json"}) 
+	@PostMapping(path="/newEmp") 
 	public Employee createEmployee(@RequestBody Employee emp) {
 		
-		return empService.createEmployee(emp.getEmpName(),emp.getEmpEmail(),emp.getEmpContact(),emp.getEmpDepartment());
+		return empService.createEmployee(emp);
 	}
 	
-	@PostMapping(path="/updateEmp",consumes= {"application/json"}) 
-	public String updateEmployee(@RequestBody Employee emp) {
+	@PostMapping(path="/updateEmp") 
+	public Employee updateEmployee(@RequestBody Employee emp) {
 		
-		return empService.updateEmployee(emp.getEmpId(), emp.getEmpName(), emp.getEmpEmail(), emp.getEmpContact(), emp.getEmpDepartment());
+		return empService.updateEmployee(emp);
 	}
 	
-	@PostMapping(path="/deleteEmp",consumes= {"application/json"}) 
-	public void deleteEmployee(@RequestBody Employee emp) {
-		empService.deleteEmployee(emp.getEmpId());
+	@DeleteMapping(path="/deleteEmp/{id}") 
+	public void deleteEmployee(@PathVariable("id") int id) {
+		empService.deleteEmployee(id);
 	}
 	
 	@GetMapping(path="/findEmpById",consumes= {"application/json"})
