@@ -3,15 +3,18 @@ package com.brij.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.brij.model.Customer;
 import com.brij.model.Query;
 import com.brij.service.QueryService;
 
+@CrossOrigin(origins="http://localhost:4200")
 @RestController
 public class QueryController {
 
@@ -30,10 +33,10 @@ public class QueryController {
 		return qService.updateQuery(q);
 	}
 	
-	@PostMapping(path="/deleteQuery", consumes={"application/json"})
-	public String deleteQuery(@RequestBody Query q) {
-		qService.deleteQuery(q.getQueryId());
-		return "Deleted";
+	@DeleteMapping(path="/deleteQuery/{id}")
+	public void deleteQuery(@PathVariable("id") int id) {
+		
+		qService.deleteQuery(id);
 	}
 	
 	@GetMapping(path="/findQueryById")
@@ -53,9 +56,28 @@ public class QueryController {
 		return qService.findAllQueries();
 	}
 	
-	@GetMapping(path="/findAllQueriesByResponse")
-	public List<Query> findAllByQueryResponse(String queryResponse) {
-		return (List<Query>) qService.findAllByQueryResponse(queryResponse);
+	@GetMapping(path="/findAllNullResponseQueriesByDept/{dept}")
+	public List<Query> findAllNullResponseQueriesByDept(@PathVariable("dept") String dept) {
+		
+		return (List<Query>) qService.findAllNullResponseQueriesByDept(dept);
 	}
+		
+	
+	@GetMapping(path="/findAllNullResponseQueries")
+	public List<Query> findAllNullResponseQueries() {
+		return (List<Query>) qService.findAllNullResponseQueries();
+	}
+	
+	@GetMapping(path="/findAllResponseQueries")
+	public List<Query> findAllResponseQueries() {
+		return (List<Query>) qService.findAllResponseQueries();
+	}
+	
+	@GetMapping(path="/findAllByEmpUsername/{username}")
+	public List<Query> findAllByEmpUsername(@PathVariable("username")String username) {
+		
+		return qService.findAllByEmpUsername(username);
+	}
+	
 
 }
