@@ -5,11 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.brij.dao.QueryRepository;
-import com.brij.model.Customer;
-import com.brij.model.Employee;
 import com.brij.model.Query;
 
 @Service
@@ -85,7 +82,7 @@ public class QueryService {
 		return notNullList;
 	}
 	
-	public List<Query> findAllByEmpUsername(String username) {
+	public List<Query> findAllResponsesByEmpUsername(String username) {
 		List<Query> list = qRepo.findAllByEmpUsername(username);
 		
 		List<Query> notNullList = new ArrayList<Query>();
@@ -95,7 +92,7 @@ public class QueryService {
 			}
 		}
 		
-		return list;
+		return notNullList;
 	}
 	
 }
