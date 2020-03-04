@@ -73,6 +73,11 @@ public class QueryController {
 		return (List<Query>) qService.findAllResponseQueries();
 	}
 	
+	@GetMapping(path="/findAllByEmpUsername/{username}")
+	public List<Query> findAllByEmpUsername(@PathVariable("username")String username) {
+		
+		return qService.findAllByEmpUsername(username);
+	}
 	
 
 }

@@ -85,4 +85,17 @@ public class QueryService {
 		return notNullList;
 	}
 	
+	public List<Query> findAllByEmpUsername(String username) {
+		List<Query> list = qRepo.findAllByEmpUsername(username);
+		
+		List<Query> notNullList = new ArrayList<Query>();
+		for(Query newlist : list) {
+			if(newlist.getQueryResponse().trim().length()>1) {
+				notNullList.add(newlist);
+			}
+		}
+		
+		return list;
+	}
+	
 }
