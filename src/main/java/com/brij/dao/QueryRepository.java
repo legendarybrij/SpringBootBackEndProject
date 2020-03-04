@@ -15,6 +15,8 @@ public interface QueryRepository extends CrudRepository<Query,Integer> {
 	 
 	 List<Query> findAllByEmpUsername(String username);
 	 
+	 List<Query> findAllByCusId(int cusId);
+	 
 	 
 //	 doesn't work like this on Repo (can't add two variable together for crud operations in repo)
 //	 List<Query> findAllByQueryResponseDepartment(String queryResponse, String department);  

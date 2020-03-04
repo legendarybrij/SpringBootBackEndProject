@@ -29,14 +29,15 @@ public class Query {
 		this.empUsername = empUsername;
 	}
 
+
 	public int getCusId() {
 		return cusId;
 	}
-	
+
 	public void setCusId(int cusId) {
 		this.cusId = cusId;
 	}
-	
+
 	public int getQueryId() {
 		return queryId;
 	}

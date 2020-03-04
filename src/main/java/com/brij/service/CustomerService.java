@@ -51,6 +51,14 @@ public class CustomerService {
 		return (List<Customer>) custRepo.findAll();
 	}
 	
+	public Integer findCusIdByCusUsername(String username) {
+		Customer cus = custRepo.findByCusUsername(username);
+		
+		return cus.getCusId();
+	}
+	
+	
+	
 	
 	
 

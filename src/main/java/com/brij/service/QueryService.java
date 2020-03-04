@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.brij.dao.QueryRepository;
 import com.brij.model.Query;
@@ -32,6 +33,21 @@ public class QueryService {
 	
 	public Query findQueryById(int id) {
 		return qRepo.findById(id).get();
+	}
+	
+	public List<Query> findAllNullResponseQueriesByCusId(int cusId) {
+		List<Query> list = qRepo.findAllByCusId(cusId);
+
+		List<Query> nullList = new ArrayList<Query>();
+		for(Query newlist : list) {
+			if(newlist.getQueryResponse().trim().length()==1 || newlist.getQueryResponse().length()==0 ) {
+				nullList.add(newlist);
+			}
+		}
+		
+		
+		return nullList;
+		
 	}
 		
 	public List<Query> findQueriesByDept(String dept){

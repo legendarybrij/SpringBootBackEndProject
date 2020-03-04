@@ -56,6 +56,11 @@ public class QueryController {
 		return qService.findAllQueries();
 	}
 	
+	@GetMapping(path="/findAllNullResponseQueriesByCusId/{cusId}")
+	public List<Query> findAllNullResponseQueriesByCusId(@PathVariable("cusId")int cusId) {
+		return qService.findAllNullResponseQueriesByCusId(cusId);
+	}
+	
 	@GetMapping(path="/findAllNullResponseQueriesByDept/{dept}")
 	public List<Query> findAllNullResponseQueriesByDept(@PathVariable("dept") String dept) {
 		
