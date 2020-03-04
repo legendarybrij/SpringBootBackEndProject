@@ -20,7 +20,16 @@ public class Employee {
 	private String empContact;
 	@Column
 	private String empDepartment;
+	@Column
+	private String empUsername;
 	
+	
+	public String getEmpUsername() {
+		return empUsername;
+	}
+	public void setEmpUsername(String empUsername) {
+		this.empUsername = empUsername;
+	}
 	public int getEmpId() {
 		return empId;
 	}

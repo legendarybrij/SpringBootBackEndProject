@@ -18,7 +18,17 @@ public class Query {
 	private String queryDescription;
 	@Column
 	private String queryResponse;
+	@Column
+	private String empUsername;
 	
+	public String getEmpUsername() {
+		return empUsername;
+	}
+
+	public void setEmpUsername(String empUsername) {
+		this.empUsername = empUsername;
+	}
+
 	public int getCusId() {
 		return cusId;
 	}

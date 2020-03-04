@@ -47,5 +47,12 @@ public class EmployeeService {
 		return (List<Employee>) empRepo.findAll();
 	}
 	
+	public String findEmpDeptByUsername(String username) {
+		Employee getEmp = empRepo.findByEmpUsername(username);
+		String dept = getEmp.getEmpDepartment();
+		return dept;
+	}
+	
+	
 
 }

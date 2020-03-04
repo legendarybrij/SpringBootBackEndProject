@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.brij.model.Employee;
 import com.brij.service.EmployeeService;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
@@ -45,6 +47,13 @@ public class EmployeeController {
 	@GetMapping(path="/findAllEmployees")
 	public List<Employee> findAllEmployees() {
 		return empService.findAllEmployees();
+	}
+	
+
+	@GetMapping(path="/findEmployeeDeptByUsername/{username}")
+	public String findEmpDeptByUsername(@PathVariable("username") String username) {
+		
+		return empService.findEmpDeptByUsername(username);
 	}
 	
 }

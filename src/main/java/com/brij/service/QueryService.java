@@ -51,7 +51,7 @@ public class QueryService {
 		list = qRepo.findAllByDepartment(dept);
 		List<Query> nullList = new ArrayList<Query>();
 		for(Query newlist : list) {
-			if(newlist.getQueryResponse() == null) {
+			if(newlist.getQueryResponse() == null || newlist.getQueryResponse().length()<1 ) {
 				nullList.add(newlist);
 			}
 		}

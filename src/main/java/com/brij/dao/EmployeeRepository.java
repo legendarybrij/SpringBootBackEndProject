@@ -6,5 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.brij.model.Employee;
 
 public interface EmployeeRepository extends CrudRepository<Employee,Integer>  {
+	
+	Employee findByEmpUsername(String username); 
 
 }
