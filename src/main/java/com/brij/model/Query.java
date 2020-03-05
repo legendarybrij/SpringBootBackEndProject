@@ -20,6 +20,8 @@ public class Query {
 	private String queryResponse;
 	@Column
 	private String empUsername;
+	@Column
+	private int rating=0;
 	
 	public String getEmpUsername() {
 		return empUsername;
@@ -29,6 +31,14 @@ public class Query {
 		this.empUsername = empUsername;
 	}
 
+
+	public int getRating() {
+		return rating;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
 
 	public int getCusId() {
 		return cusId;

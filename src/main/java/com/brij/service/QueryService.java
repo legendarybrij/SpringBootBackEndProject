@@ -49,6 +49,21 @@ public class QueryService {
 		return nullList;
 		
 	}
+	
+	public List<Query> findAllResponseQueriesByCusId(int cusId) {
+		List<Query> list = qRepo.findAllByCusId(cusId);
+
+		List<Query> notNullList = new ArrayList<Query>();
+		for(Query newlist : list) {
+			if(newlist.getQueryResponse().trim().length()>1) {
+				notNullList.add(newlist);
+			}
+		}
+		
+		
+		return notNullList;
+		
+	}
 		
 	public List<Query> findQueriesByDept(String dept){
 		

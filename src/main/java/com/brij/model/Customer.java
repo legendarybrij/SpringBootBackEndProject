@@ -24,6 +24,22 @@ public class Customer {
 	private String cusUsername;
 	
 
+	public Customer(int cusId, String cusName, String cusEmail, String cusContact, String cusAddress,
+			String cusUsername) {
+		super();
+		this.cusId = cusId;
+		this.cusName = cusName;
+		this.cusEmail = cusEmail;
+		this.cusContact = cusContact;
+		this.cusAddress = cusAddress;
+		this.cusUsername = cusUsername;
+	}
+	
+	public Customer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getCusUsername() {
 		return cusUsername;
 	}
