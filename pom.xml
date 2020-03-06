@@ -33,6 +33,12 @@
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		<!-- End of Security -->
+		<!-- for email -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+		<!-- End of email -->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
