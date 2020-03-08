@@ -3,6 +3,7 @@ package com.brij.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,16 @@ public class QueryController {
 
 	@Autowired
 	QueryService qService;
+	
+	@Value("${news}")
+	private String news;
+	
+	 @GetMapping("/key")
+	 public String getKey()
+	 {
+	  return news;
+	 }
+
 	
 	@PostMapping(path="/newQuery")
 	public Query createQuery(@RequestBody Query q){
@@ -54,6 +65,16 @@ public class QueryController {
 	@GetMapping(path="/findAllQueries")
 	public List<Query> findAllQueries() {
 		return qService.findAllQueries();
+	}
+	
+	@GetMapping(path="/findAllNullResponseQueriesByCusId/{cusId}")
+	public List<Query> findAllNullResponseQueriesByCusId(@PathVariable("cusId")int cusId) {
+		return qService.findAllNullResponseQueriesByCusId(cusId);
+	}
+	
+	@GetMapping(path="/findAllResponseQueriesByCusId/{cusId}")
+	public List<Query> findAllResponseQueriesByCusId(@PathVariable("cusId")int cusId) {
+		return qService.findAllResponseQueriesByCusId(cusId);
 	}
 	
 	@GetMapping(path="/findAllNullResponseQueriesByDept/{dept}")

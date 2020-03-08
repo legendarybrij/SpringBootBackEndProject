@@ -50,5 +50,10 @@ public class CustomerController {
 	public List<Customer> findAllCustomers() {
 		return cusService.findAllCustomers();
 	}
+	
+	@GetMapping(path="/findCusIdByCusUsername/{username}")
+	public Integer findCusIdByCusUsername(@PathVariable("username") String username) {		
+		return cusService.findCusIdByCusUsername(username);
+	}
 
 }

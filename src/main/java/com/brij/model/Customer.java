@@ -20,15 +20,19 @@ public class Customer {
 	private String cusContact;
 	@Column
 	private String cusAddress;
+	@Column
+	private String cusUsername;
 	
-	
-	public Customer(int cusId, String cusName, String cusEmail, String cusContact, String cusAddress) {
+
+	public Customer(int cusId, String cusName, String cusEmail, String cusContact, String cusAddress,
+			String cusUsername) {
 		super();
 		this.cusId = cusId;
 		this.cusName = cusName;
 		this.cusEmail = cusEmail;
 		this.cusContact = cusContact;
 		this.cusAddress = cusAddress;
+		this.cusUsername = cusUsername;
 	}
 	
 	public Customer() {
@@ -36,6 +40,12 @@ public class Customer {
 		// TODO Auto-generated constructor stub
 	}
 
+	public String getCusUsername() {
+		return cusUsername;
+	}
+	public void setCusUsername(String cusUsername) {
+		this.cusUsername = cusUsername;
+	}
 	public int getCusId() {
 		return cusId;
 	}

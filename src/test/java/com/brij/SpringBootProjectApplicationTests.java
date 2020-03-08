@@ -50,7 +50,7 @@ public class SpringBootProjectApplicationTests {
 	public void createCustomerTest() {
 		//this.id=service.findAllCustomers().size()+1;
 //		System.out.println(service.findAllCustomers().size()+1);
-		Customer cus = new Customer(id,"Neil","neil@gmail.com","9125647654","308 Main st");	
+		Customer cus = new Customer(id,"Neil","neil@gmail.com","9125647654","308 Main st","neil");	
 		when(repository.save(cus)).thenReturn(cus);
 		assertEquals(cus.toString(), service.createCustomer(cus).toString());
 		
@@ -58,7 +58,7 @@ public class SpringBootProjectApplicationTests {
 	
 	@Test
 	public void updateCustomerTest() {
-		Customer cus = new Customer(id,"Neil","neil@gmail.com","9125647654","308 Main st");		
+		Customer cus = new Customer(id,"Neil","neil@gmail.com","9125647654","308 Main st","neilshah");		
 		when(repository.save(cus)).thenReturn(cus);
 		assertEquals(cus.toString(), service.updateCustomer(cus).toString());
 		
@@ -67,7 +67,7 @@ public class SpringBootProjectApplicationTests {
 	
 	@Test
 	public void findByIdCustomerTest() {
-		Customer cus = new Customer(id,"Neil","neil@gmail.com","9125647654","308 Main st");
+		Customer cus = new Customer(id,"Neil","neil@gmail.com","9125647654","308 Main st","neilshah");
 		when(repository.findById(id)).thenReturn(cus);
 		//service.updateCustomer(cus);
 		assertEquals(cus.toString(), service.findCusById(id).toString());
