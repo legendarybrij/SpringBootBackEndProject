@@ -2,6 +2,7 @@ package com.brij.controller;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.brij.SpringBootProjectApplication;
 import com.brij.model.Customer;
 import com.brij.service.CustomerService;
 
@@ -19,10 +21,13 @@ import com.brij.service.CustomerService;
 public class CustomerController {
 	@Autowired
 	CustomerService cusService;
+	Logger log=Logger.getLogger(SpringBootProjectApplication.class.getName());
 	
 	@PostMapping(path="/newCus",consumes={"application/json"}) 
 	public Customer createCustomer(@RequestBody Customer customer) {
+		log.info("Creating Customer "+customer.getCusUsername());
 		return cusService.createCustomer(customer);
+		
 	}
 	
 	@PostMapping(path="/updateCus",consumes={"application/json"}) 

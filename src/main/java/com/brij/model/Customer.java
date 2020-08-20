@@ -20,6 +20,7 @@ public class Customer {
 	private String cusContact;
 	@Column
 	private String cusAddress;
+//	@Column (unique=true)
 	@Column
 	private String cusUsername;
 	

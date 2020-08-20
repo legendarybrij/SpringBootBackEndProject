@@ -30,7 +30,7 @@ public class SpringBootProjectApplicationTests {
 //	= (CustomerService) Mockito.mock(CustomerService.class);
 //	@MockBean
 	private CustomerRepository repository = (CustomerRepository) Mockito.mock(CustomerRepository.class);
-	private int id=1;
+	private int id=27;
 	
 	
 //	@Test
