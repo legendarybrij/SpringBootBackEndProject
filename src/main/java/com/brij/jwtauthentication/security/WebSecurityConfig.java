@@ -18,7 +18,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.brij.jwtauthentication.security.jwt.JwtAuthEntryPoint;
 import com.brij.jwtauthentication.security.jwt.JwtAuthTokenFilter;
 import com.brij.jwtauthentication.security.services.UserDetailsServiceImpl;
-
+//main file for granting access to api in configuration
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(

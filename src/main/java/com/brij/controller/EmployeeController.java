@@ -16,7 +16,8 @@ import com.brij.service.EmployeeService;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="*")
+//@CrossOrigin(origins="https://crm-project-1.herokuapp.com")
 @RestController
 public class EmployeeController {
 	@Autowired

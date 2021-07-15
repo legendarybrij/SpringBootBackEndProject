@@ -16,7 +16,8 @@ import com.brij.SpringBootProjectApplication;
 import com.brij.model.Customer;
 import com.brij.service.CustomerService;
 
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="*")
+//@CrossOrigin(origins="https://crm-project-1.herokuapp.com")
 @RestController
 public class CustomerController {
 	@Autowired
