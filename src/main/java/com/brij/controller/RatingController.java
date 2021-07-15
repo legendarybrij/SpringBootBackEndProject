@@ -4,6 +4,7 @@ package com.brij.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,7 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.brij.model.Rating;
 import com.brij.service.RatingService;
-
+@CrossOrigin(origins="*")
+//@CrossOrigin(origins="https://crm-project-1.herokuapp.com")
 @RestController
 public class RatingController {
 
