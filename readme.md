@@ -1,2 +1,4 @@
 ### Log in Info we need 
-Brijesh - 123456
+Admin -> Brijesh - 123456
+Employee -> brij, brian, shekina, Rioh 
+User -> neil, Moath, Hong Lin, Darwin, Akshit  
